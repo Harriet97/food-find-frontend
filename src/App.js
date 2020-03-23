@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Home from "./components/Home";
+import API from "./api";
+import SignInForm from "./components/SignInForm";
+import { Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    username: null
+  };
+
+  componentDidMount() {
+    if (localStorage.token) {
+      API.validate(localStorage.token).then(json =>
+        this.signIn(json.username, json.token)
+      );
+    }
+  }
+
+  signIn = (username, token) => {
+    this.setState({
+      username
+    });
+    localStorage.token = token;
+  };
+
+  signOut = () => {
+    this.setState({
+      username: null
+    });
+    localStorage.removeItem("token");
+  };
+
+  render() {
+    return (
+      <div>
+        <Home username={this.state.username} signOut={this.signOut} />
+        <Route
+          exact
+          path="/sign-in"
+          component={() => <SignInForm signIn={this.signIn} />}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
