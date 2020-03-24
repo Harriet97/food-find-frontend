@@ -1,6 +1,5 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
-import { Image } from "semantic-ui-react";
+import { Card, Button, Image } from "semantic-ui-react";
 
 class RestaurantCard extends React.Component {
   state = {
@@ -32,20 +31,22 @@ class RestaurantCard extends React.Component {
           <h4>
             Rated: {restaurant.user_rating.aggregate_rating}/10 and "
             {restaurant.user_rating.rating_text}" by{" "}
-            {restaurant.user_rating.all_reviews_count} many users
+            {restaurant.all_reviews_count} users
           </h4>
+          <Button color="red" circular icon="heart" attached="bottom" />
         </Card>
       );
     } else {
       return (
-        <Card onClick={this.showDeetsToggle}>
+        <Card onClick={this.showDeetsToggle} raised style={{ height: "450px" }}>
           <Image
             alt="restaurant pic"
             src={restaurant.featured_image}
-            size="medium"
-            bordered
+            fluid
+            style={{ maxHeight: "350px" }}
           />
           <h1>{restaurant.name}</h1>
+          <Button color="red" circular icon="heart" attached="bottom" />
           {/* Have a clickable url to restaurant via restaurant.url */}
         </Card>
       );
