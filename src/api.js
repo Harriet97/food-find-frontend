@@ -3,14 +3,28 @@ const baseURL = "http://localhost:3000";
 const signInURL = `${baseURL}/sign-in`;
 const validateURL = `${baseURL}/validate`;
 const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
+const locationUrl = "https://developers.zomato.com/api/v2.1/search?";
 
-const getRestaurants = () => {
+const searchRestaurants = () => {
   return fetch(searchURL, {
     method: "GET",
     headers: {
       "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
     }
   }).then(jsonify);
+};
+
+const localRestaurants = location => {
+  console.log(location)
+  return fetch(
+    `${locationUrl}lat=${location.latitude}&lon=${location.longitude}`,
+    {
+      method: "GET",
+      headers: {
+        "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+      }
+    }
+  ).then(jsonify);
 };
 
 const get = (url, token) => {
@@ -35,4 +49,4 @@ const validate = token => {
   return get(validateURL, token).then(jsonify);
 };
 
-export default { signIn, validate, getRestaurants };
+export default { signIn, validate, searchRestaurants, localRestaurants};
