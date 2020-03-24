@@ -1,7 +1,18 @@
+const jsonify = response => response.json();
 const baseURL = "http://localhost:3000";
 const signInURL = `${baseURL}/sign-in`;
 const validateURL = `${baseURL}/validate`;
-// Make a post request to a given URL with a given data object as the body and return the Promise
+const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
+
+const getRestaurants = () => {
+  return fetch(searchURL, {
+    method: "GET",
+    headers: {
+      "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+    }
+  }).then(jsonify);
+};
+
 const get = (url, token) => {
   return token ? fetch(url, { headers: { AUTHORIZATION: token } }) : fetch(url);
 };
@@ -18,10 +29,10 @@ const post = (url, data) => {
   return fetch(url, configurationObject);
 };
 const signIn = data => {
-  return post(signInURL, data).then(response => response.json());
+  return post(signInURL, data).then(jsonify);
 };
 const validate = token => {
-  return get(validateURL, token).then(response => response.json());
+  return get(validateURL, token).then(jsonify);
 };
 
-export default { signIn, validate };
+export default { signIn, validate, getRestaurants };

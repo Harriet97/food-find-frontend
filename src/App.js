@@ -7,15 +7,21 @@ import { Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    username: null
+    username: null,
+    allRestaurants: []
   };
 
   componentDidMount() {
-    if (localStorage.token) {
-      API.validate(localStorage.token).then(json =>
-        this.signIn(json.username, json.token)
-      );
-    }
+    // if (localStorage.token) {
+    //   API.validate(localStorage.token).then(json =>
+    //     this.signIn(json.username, json.token)
+    //   );
+    // }
+    API.getRestaurants().then(data => {
+      this.setState({
+        allRestaurants: data.restaurants
+      });
+    });
   }
 
   signIn = (username, token) => {
@@ -35,7 +41,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Home username={this.state.username} signOut={this.signOut} />
+        <Home
+          username={this.state.username}
+          signOut={this.signOut}
+          restaurants={this.state.allRestaurants}
+        />
         <Route
           exact
           path="/sign-in"

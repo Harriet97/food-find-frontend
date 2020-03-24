@@ -27,7 +27,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar variant="dark" className="color-Nav justify-content-end">
         <Navbar.Brand>
           <Link to="/">
             <img

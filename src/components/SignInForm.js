@@ -5,11 +5,9 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from "semantic-ui-react";
-import { render } from "@testing-library/react";
 
 class SignInForm extends React.Component {
   state = {
@@ -39,7 +37,7 @@ class SignInForm extends React.Component {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
-            <Image src="/logo.png" /> Log-in to your account
+            Log-in to your account
           </Header>
           <Form size="large" onSubmit={this.handleSubmit}>
             <Segment stacked>
@@ -59,7 +57,6 @@ class SignInForm extends React.Component {
                 name="password"
                 iconPosition="left"
                 placeholder="Password"
-                type="password"
                 onChange={this.handleChange}
               />
 
@@ -75,7 +72,7 @@ class SignInForm extends React.Component {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href="#">Sign Up</a>
+            New to us? <a href="/">Sign Up</a>
           </Message>
         </Grid.Column>
       </Grid>
