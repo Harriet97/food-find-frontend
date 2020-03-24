@@ -8,21 +8,19 @@ import { Route } from "react-router-dom";
 class App extends Component {
   state = {
     username: null,
-    allRestaurants: []
+    allRestaurants: [],
   };
 
   componentDidMount() {
-    // if (localStorage.token) {
-    //   API.validate(localStorage.token).then(json =>
-    //     this.signIn(json.username, json.token)
-    //   );
-    // }
-    API.getRestaurants().then(data => {
+    navigator.geolocation.getCurrentPosition(
+			position => 
+    API.localRestaurants(position.coords).then(data => {
       this.setState({
         allRestaurants: data.restaurants
       });
-    });
-  }
+    })
+    )}
+
 
   signIn = (username, token) => {
     this.setState({
