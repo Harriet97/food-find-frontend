@@ -1,48 +1,42 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "react-bootstrap/Navbar";
+import { Button, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-//Should recieve as props:
-// logOut function
-//
-
 //Links needed:
-// "/signup"
-// "/login"
-// "/" -> To redirect when logged out
 // "/search" -> find a restaurant
 
 class NavBar extends React.Component {
   signedIn = () => {
     return this.props.username ? (
-      <Link onClick={this.props.logOut} to="/">
-        {" "}
-        Log Out{" "}
-      </Link>
+      <Menu.Item>
+        <Link onClick={this.props.signOut} to="/">
+          {" "}
+          Sign Out{" "}
+        </Link>
+      </Menu.Item>
     ) : (
-      <Link to="/sign-in">Sign In</Link>
+      <Menu.Item>
+        <Link to="/sign-in">Sign In</Link>
+      </Menu.Item>
     );
   };
 
   render() {
     return (
-      <Navbar variant="dark" className="color-Nav justify-content-end">
-        <Navbar.Brand>
-          <Link to="/">
-            <img
-              src="https://image.shutterstock.com/image-vector/find-restaurant-260nw-742543297.jpg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="FoodFind Logo"
-            />{" "}
-            FoodFind
-          </Link>{" "}
-          <Link to="/"> Find a Restaurant </Link>
+      <Menu fixed="top" style={{ padding: "8px" }}>
+        <Menu.Item>
+          <Link to="/">FoodFind</Link>
+        </Menu.Item>
+        <Menu.Menu position="right">
+          <Menu.Item>
+            <Link to="/">Your Favourites</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/restaurants">Find a Restaurant</Link>
+          </Menu.Item>
           {this.signedIn()}
-        </Navbar.Brand>
-      </Navbar>
+        </Menu.Menu>
+      </Menu>
     );
   }
 }
