@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../api";
+import { Link } from "react-router-dom";
 import {
   Button,
   Form,
@@ -72,7 +73,7 @@ class SignInForm extends React.Component {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href="/">Sign Up</a>
+            New to us? <Link to="/sign-up">Sign Up </Link>
           </Message>
         </Grid.Column>
       </Grid>

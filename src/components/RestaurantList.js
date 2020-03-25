@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCardTest from "./RestaurantCardTest";
 import { Card } from "semantic-ui-react";
 
 class RestaurantList extends Component {
@@ -7,7 +7,7 @@ class RestaurantList extends Component {
     const { restaurants } = this.props;
     console.log(restaurants);
     return restaurants.map(restaurant => (
-      <RestaurantCard
+      <RestaurantCardTest
         restaurant={restaurant.restaurant}
         key={restaurant.restaurant.id}
       />

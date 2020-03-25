@@ -33,20 +33,20 @@ class RestaurantCard extends React.Component {
             {restaurant.user_rating.rating_text}" by{" "}
             {restaurant.all_reviews_count} users
           </h4>
-          <Button color="red" circular icon="heart" attached="bottom" />
+          <Button color="red" icon="heart" attached="bottom" floated="right" />
         </Card>
       );
     } else {
       return (
-        <Card onClick={this.showDeetsToggle} raised style={{ height: "450px" }}>
+        <Card onClick={this.showDeetsToggle} raised style={{ height: "350px" }}>
           <Image
             alt="restaurant pic"
             src={restaurant.featured_image}
             fluid
-            style={{ maxHeight: "350px" }}
+            style={{ maxHeight: "250px" }}
           />
           <h1>{restaurant.name}</h1>
-          <Button color="red" circular icon="heart" attached="bottom" />
+          <Button color="red" icon="heart" attached="bottom" floated="right" />
           {/* Have a clickable url to restaurant via restaurant.url */}
         </Card>
       );
