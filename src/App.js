@@ -10,11 +10,13 @@ import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import RestaurantShow from "./components/RestaurantShow";
+import Favourites from "./components/Favourites";
 
 class App extends Component {
   state = {
     username: null,
-    allRestaurants: []
+    allRestaurants: [],
+    favourites: []
   };
 
   componentDidMount() {
@@ -27,9 +29,10 @@ class App extends Component {
     );
   }
 
-  signIn = (username, token) => {
+  signIn = (username, token, favourites ) => {
     this.setState({
-      username
+      username,
+      favourites
     });
     localStorage.token = token;
   };
@@ -60,6 +63,11 @@ class App extends Component {
           exact
           path="/sign-up"
           component={() => <SignUpForm signIn={this.signIn} />}
+        />
+        <Route
+          exact
+          path="/favourites"
+          component={() => <Favourites favourites={this.state.favourites} />}
         />
         <Route exact path="/restaurants/:id" component={RestaurantShow} />
         {/* <Footer /> */}
