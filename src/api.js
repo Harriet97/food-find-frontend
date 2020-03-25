@@ -1,6 +1,7 @@
 const jsonify = response => response.json();
 const baseURL = "http://localhost:3000";
 const signInURL = `${baseURL}/sign-in`;
+const signUpURL = `${baseURL}/users`;
 const validateURL = `${baseURL}/validate`;
 const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
 const locationUrl = "https://developers.zomato.com/api/v2.1/search?";
@@ -48,7 +49,16 @@ const signIn = data => {
 const validate = token => {
   return get(validateURL, token).then(jsonify);
 };
+const signUp = body => {
+  return post(signUpURL, body).then(resp => resp.json());
+};
 
-export default { signIn, validate, searchRestaurants, localRestaurants };
+export default {
+  signUp,
+  signIn,
+  validate,
+  searchRestaurants,
+  localRestaurants
+};
 
 // source ~/.bashrc
