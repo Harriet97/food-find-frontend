@@ -30,11 +30,11 @@ class App extends Component {
     if (localStorage.token) {
       API.validate(localStorage.token)
         // Pass the username and token the server sends back to signIn
-        .then(json => this.signIn(json.username, json.token));
+        .then(json => this.signIn(json.username, json.token, json.favourites));
     }
   }
 
-  signIn = (username, token, favourites ) => {
+  signIn = (username, token, favourites) => {
     this.setState({
       username,
       favourites
