@@ -26,7 +26,7 @@ class RestaurantCardTest extends React.Component {
               <Icon name="plus circle" />
               More Info
             </Button>
-            <Button content="Favourite" color="red" icon="heart"></Button>
+            <Button content="Favourite" color="red" icon="heart" onClick={() => this.props.addFav(restaurant)}></Button>
           </Button.Group>
         </Card.Body>
       </Card>

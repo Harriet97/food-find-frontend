@@ -49,6 +49,23 @@ class App extends Component {
     localStorage.removeItem("token");
   };
 
+  addFav = restaurant => {
+    let postBody = {
+      name: restaurant.name,
+      cuisine: restaurant.cuisines,
+      picture: restaurant.thumb,
+      zomato_id: restaurant.id,
+      longitude: restaurant.location.longitude,
+      latitude: restaurant.location.latitude,
+      user: this.state.username
+    };
+    API.addFavourite(postBody).then(json => {
+      this.setState({
+        favourites: [...this.state.favourites, json.restaurant]
+      });
+    });
+  };
+
   render() {
     return (
       <div>
@@ -57,7 +74,12 @@ class App extends Component {
         <Route
           exact
           path="/restaurants"
-          component={() => <Home restaurants={this.state.allRestaurants} />}
+          component={() => (
+            <Home
+              restaurants={this.state.allRestaurants}
+              addFav={this.addFav}
+            />
+          )}
         />
         <Route
           exact

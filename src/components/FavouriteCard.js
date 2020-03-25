@@ -26,8 +26,10 @@ class FavouriteCard extends React.Component {
               <Icon name="plus circle" />
               More Info
             </Button>
-            <Button content="Favourite" color="red" icon="heart"></Button>
+            <Button content="Remove" color="green" icon="heart"></Button>
+            {/* remove button not yet functional */}
           </Button.Group>
+          
         </Card.Body>
       </Card>
     );

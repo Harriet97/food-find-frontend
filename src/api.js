@@ -3,6 +3,7 @@ const baseURL = "http://localhost:3000";
 const signInURL = `${baseURL}/sign-in`;
 const signUpURL = `${baseURL}/users`;
 const validateURL = `${baseURL}/validate`;
+const addFavURL = `${baseURL}/restaurants`;
 const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
 const locationUrl = "https://developers.zomato.com/api/v2.1/search?";
 
@@ -53,12 +54,17 @@ const signUp = body => {
   return post(signUpURL, body).then(resp => resp.json());
 };
 
+const addFavourite = body => {
+  return post(addFavURL, body).then(jsonify);
+}
+
 export default {
   signUp,
   signIn,
   validate,
   searchRestaurants,
-  localRestaurants
+  localRestaurants,
+  addFavourite
 };
 
 // source ~/.bashrc
