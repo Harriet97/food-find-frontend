@@ -25,7 +25,7 @@ class SignInForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     API.signIn(this.state).then(json =>
-      this.props.signIn(json.username, json.token)
+      this.props.signIn(json.username, json.token, json.favourites)
     );
   };
 

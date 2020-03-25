@@ -29,7 +29,7 @@ class NavBar extends React.Component {
         </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
-            <Link to="/">Your Favourites</Link>
+            <Link to="/favourites">Your Favourites</Link>
           </Menu.Item>
           <Menu.Item>
             <Link to="/restaurants">Find a Restaurant</Link>
