@@ -30,7 +30,8 @@ class SignUpForm extends React.Component {
     e.preventDefault();
 
     API.signUp(this.state).then(json => {
-      this.props.signIn(json.user, json.token);
+      console.log(json)
+      this.props.signIn(json.username, json.token, json.favourites);
     });
   };
 

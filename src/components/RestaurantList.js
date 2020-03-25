@@ -10,6 +10,7 @@ class RestaurantList extends Component {
       <RestaurantCardTest
         restaurant={restaurant.restaurant}
         key={restaurant.restaurant.id}
+        addFav={this.props.addFav}
       />
     ));
   };

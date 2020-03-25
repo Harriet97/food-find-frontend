@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div style={{ padding: "70px" }}>
-        <RestaurantList restaurants={this.props.restaurants} />
+        <RestaurantList restaurants={this.props.restaurants} addFav={this.props.addFav} />
       </div>
     );
   }
