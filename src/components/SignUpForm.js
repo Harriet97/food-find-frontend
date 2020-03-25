@@ -14,6 +14,9 @@ import {
 class SignUpForm extends React.Component {
   state = {
     username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
     password: ""
   };
 
@@ -26,9 +29,9 @@ class SignUpForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    // API.signIn(this.state).then(json =>
-    //   this.props.signIn(json.username, json.token)
-    // );
+    API.signUp(this.state).then(json => {
+      this.props.signIn(json.user, json.token);
+    });
   };
 
   render() {
