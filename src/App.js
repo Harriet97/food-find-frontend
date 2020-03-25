@@ -27,6 +27,11 @@ class App extends Component {
         });
       })
     );
+    if (localStorage.token) {
+      API.validate(localStorage.token)
+        // Pass the username and token the server sends back to signIn
+        .then(json => this.signIn(json.username, json.token));
+    }
   }
 
   signIn = (username, token, favourites ) => {
