@@ -15,7 +15,7 @@ const searchRestaurants = () => {
 };
 
 const localRestaurants = location => {
-  console.log(location)
+  console.log(location);
   return fetch(
     `${locationUrl}lat=${location.latitude}&lon=${location.longitude}`,
     {
@@ -49,4 +49,6 @@ const validate = token => {
   return get(validateURL, token).then(jsonify);
 };
 
-export default { signIn, validate, searchRestaurants, localRestaurants};
+export default { signIn, validate, searchRestaurants, localRestaurants };
+
+// source ~/.bashrc

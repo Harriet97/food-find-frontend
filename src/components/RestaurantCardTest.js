@@ -22,7 +22,7 @@ class RestaurantCardTest extends React.Component {
           </Card.Title>
           {/* <Button attached="bottom">Bottom</Button> */}
           <Button.Group attached="bottom">
-            <Button icon="info circle" as={Link} to="/restaurants/:id">
+            <Button as={Link} to="/restaurants/:id">
               <Icon name="plus circle" />
               More Info
             </Button>

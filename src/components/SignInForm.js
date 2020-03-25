@@ -68,7 +68,7 @@ class SignInForm extends React.Component {
                 type="submit"
                 value="Sign In"
               >
-                Login
+                Sign In
               </Button>
             </Segment>
           </Form>
