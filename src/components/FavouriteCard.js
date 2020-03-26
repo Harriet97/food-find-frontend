@@ -26,7 +26,7 @@ class FavouriteCard extends React.Component {
               <Icon name="plus circle" />
               More Info
             </Button>
-            <Button content="Remove" color="green" icon="heart"></Button>
+            <Button content="Remove" color="green" icon="heart" onClick={() => this.props.removeFav(restaurant)}></Button>
             {/* remove button not yet functional */}
           </Button.Group>
           

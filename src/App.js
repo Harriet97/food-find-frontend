@@ -44,7 +44,8 @@ class App extends Component {
 
   signOut = () => {
     this.setState({
-      username: null
+      username: null,
+      favourites: []
     });
     localStorage.removeItem("token");
   };
@@ -66,6 +67,21 @@ class App extends Component {
     });
   };
 
+  removeFav = restaurant => {
+    let favouriteList = this.state.favourites
+    let resIndex = favouriteList.indexOf(restaurant)
+    favouriteList.splice(resIndex, 1)
+    let deleteBody = {
+      restaurant: restaurant,
+      user: this.state.username
+    }
+    API.destroyFavourite(deleteBody).then(json => {
+      this.setState({
+        favourites: favouriteList
+      })
+    })
+  };
+
   render() {
     return (
       <div>
@@ -78,6 +94,8 @@ class App extends Component {
             <Home
               restaurants={this.state.allRestaurants}
               addFav={this.addFav}
+              loggedIn={this.state.username}
+              favRestaurants={this.state.favourites}
             />
           )}
         />
@@ -94,7 +112,12 @@ class App extends Component {
         <Route
           exact
           path="/favourites"
-          component={() => <Favourites favourites={this.state.favourites} />}
+          component={() => (
+            <Favourites
+              favourites={this.state.favourites}
+              removeFav={this.removeFav}
+            />
+          )}
         />
         <Route exact path="/restaurants/:id" component={RestaurantShow} />
         {/* <Footer /> */}

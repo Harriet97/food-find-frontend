@@ -5,11 +5,11 @@ import { Card } from "semantic-ui-react";
 class FavouritesList extends Component {
   generateFavouriteCards = () => {
     const { restaurants } = this.props;
-    console.log(restaurants);
     return restaurants.map(restaurant => (
       <FavouriteCard
         restaurant={restaurant}
         key={restaurant.id}
+        removeFav={this.props.removeFav}
       />
     ));
   };
