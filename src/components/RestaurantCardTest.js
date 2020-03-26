@@ -8,7 +8,7 @@ class RestaurantCardTest extends React.Component {
     const { restaurant } = this.props;
     return (
       <Card>
-        <div id="container">
+        <div id="imageContainer">
           <Card.Img
             variant="top"
             alt="restaurant pic"
@@ -20,13 +20,17 @@ class RestaurantCardTest extends React.Component {
           <Card.Title style={{ textAlign: "center" }}>
             {restaurant.name}
           </Card.Title>
-          {/* <Button attached="bottom">Bottom</Button> */}
           <Button.Group attached="bottom">
-            <Button as={Link} to="/restaurants/:id">
+            <Button as={Link} to={`/restaurants/${restaurant.id}`}>
               <Icon name="plus circle" />
               More Info
             </Button>
-            <Button content="Favourite" color="red" icon="heart" onClick={() => this.props.addFav(restaurant)}></Button>
+            <Button
+              content="Favourite"
+              color="red"
+              icon="heart"
+              onClick={() => this.props.addFav(restaurant)}
+            ></Button>
           </Button.Group>
         </Card.Body>
       </Card>

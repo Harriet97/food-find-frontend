@@ -16,7 +16,12 @@ class RestaurantList extends Component {
   };
   render() {
     return (
-      <Card.Group itemsPerRow={4}>{this.generateRestaurantCards()}</Card.Group>
+      <div>
+        <h1>Seach here</h1>
+        <Card.Group itemsPerRow={4}>
+          {this.generateRestaurantCards()}
+        </Card.Group>
+      </div>
     );
   }
 }

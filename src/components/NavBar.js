@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Menu } from "semantic-ui-react";
+import { Button, Menu, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 //Links needed:
@@ -23,8 +23,13 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <Menu fixed="top" style={{ padding: "8px" }}>
-        <Menu.Item>
+      <Menu
+        fixed="top"
+        style={{ padding: "8px" }}
+        // inverted color="teal"
+      >
+        <Menu.Item color="teal">
+          <Icon name="food" color="white" />
           <Link to="/">FoodFind</Link>
         </Menu.Item>
         <Menu.Menu position="right">

@@ -8,7 +8,8 @@ import {
   Grid,
   Header,
   Message,
-  Segment
+  Segment,
+  Icon
 } from "semantic-ui-react";
 
 class SignUpForm extends React.Component {
@@ -30,7 +31,7 @@ class SignUpForm extends React.Component {
     e.preventDefault();
 
     API.signUp(this.state).then(json => {
-      console.log(json)
+      console.log(json);
       this.props.signIn(json.username, json.token, json.favourites);
     });
   };
@@ -44,6 +45,7 @@ class SignUpForm extends React.Component {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
+            <Icon name="food" />
             Sign-up to FoodFind
           </Header>
           <Form size="large" onSubmit={this.handleSubmit}>

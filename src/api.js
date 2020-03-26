@@ -6,6 +6,8 @@ const validateURL = `${baseURL}/validate`;
 const addFavURL = `${baseURL}/restaurants`;
 const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
 const locationUrl = "https://developers.zomato.com/api/v2.1/search?";
+const restaurantShowURL =
+  "https://developers.zomato.com/api/v2.1/restaurant?res_id=";
 
 const searchRestaurants = () => {
   return fetch(searchURL, {
@@ -56,7 +58,16 @@ const signUp = body => {
 
 const addFavourite = body => {
   return post(addFavURL, body).then(jsonify);
-}
+};
+
+const getRestaurant = id => {
+  return fetch(`${restaurantShowURL}${id}`, {
+    method: "GET",
+    headers: {
+      "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+    }
+  }).then(jsonify);
+};
 
 export default {
   signUp,
@@ -64,7 +75,8 @@ export default {
   validate,
   searchRestaurants,
   localRestaurants,
-  addFavourite
+  addFavourite,
+  getRestaurant
 };
 
 // source ~/.bashrc
