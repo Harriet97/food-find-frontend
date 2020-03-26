@@ -12,7 +12,6 @@ const restaurantShowURL =
 
 const removeFavURL = `${baseURL}/unfavourite`;
 
-
 const searchRestaurants = () => {
   return fetch(searchURL, {
     method: "GET",
@@ -64,7 +63,6 @@ const addFavourite = body => {
   return post(addFavURL, body).then(jsonify);
 };
 
-
 const getRestaurant = id => {
   return fetch(`${restaurantShowURL}${id}`, {
     method: "GET",
@@ -72,6 +70,7 @@ const getRestaurant = id => {
       "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
     }
   }).then(jsonify);
+};
 
 const destroyFavourite = data => {
   return fetch(`${removeFavURL}`, {
@@ -81,7 +80,7 @@ const destroyFavourite = data => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
+  });
 };
 
 export default {
@@ -91,11 +90,8 @@ export default {
   searchRestaurants,
   localRestaurants,
   addFavourite,
-
-  getRestaurant
-
+  getRestaurant,
   destroyFavourite
-
 };
 
 // source ~/.bashrc

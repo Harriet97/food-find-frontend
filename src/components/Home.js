@@ -19,6 +19,8 @@ class Home extends Component {
         <RestaurantList
           restaurants={this.props.restaurants}
           addFav={this.props.addFav}
+          loggedIn={this.props.loggedIn}
+          favRestaurants={this.props.favRestaurants}
         />
 
         <RestaurantList restaurants={this.props.restaurants} addFav={this.props.addFav} loggedIn={this.props.loggedIn} favRestaurants={this.props.favRestaurants} />
