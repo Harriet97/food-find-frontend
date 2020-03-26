@@ -11,6 +11,8 @@ class RestaurantList extends Component {
         restaurant={restaurant.restaurant}
         key={restaurant.restaurant.id}
         addFav={this.props.addFav}
+        loggedIn={this.props.loggedIn}
+        alreadyFav={this.props.favRestaurants.filter(favRestaurant => favRestaurant.zomato_id == restaurant.restaurant.id).length >=1}
       />
     ));
   };
