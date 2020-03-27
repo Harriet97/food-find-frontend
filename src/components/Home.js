@@ -22,9 +22,6 @@ class Home extends Component {
           loggedIn={this.props.loggedIn}
           favRestaurants={this.props.favRestaurants}
         />
-
-        <RestaurantList restaurants={this.props.restaurants} addFav={this.props.addFav} loggedIn={this.props.loggedIn} favRestaurants={this.props.favRestaurants} />
-
       </div>
     );
   }
