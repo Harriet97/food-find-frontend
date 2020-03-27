@@ -16,7 +16,9 @@ class App extends Component {
   state = {
     username: null,
     allRestaurants: [],
-    favourites: []
+    favourites: [],
+    value: "",
+    cuisines: []
   };
 
   componentDidMount() {
@@ -24,6 +26,13 @@ class App extends Component {
       API.localRestaurants(position.coords).then(data => {
         this.setState({
           allRestaurants: data.restaurants
+        });
+      })
+    );
+    navigator.geolocation.getCurrentPosition(position =>
+      API.getCuisines(position.coords).then(data => {
+        this.setState({
+          cuisines: data.cuisines
         });
       })
     );
@@ -68,19 +77,47 @@ class App extends Component {
   };
 
   removeFav = restaurant => {
-    let favouriteList = this.state.favourites
-    let resIndex = favouriteList.indexOf(restaurant)
-    favouriteList.splice(resIndex, 1)
+    let favouriteList = this.state.favourites;
+    let resIndex = favouriteList.indexOf(restaurant);
+    favouriteList.splice(resIndex, 1);
     let deleteBody = {
       restaurant: restaurant,
       user: this.state.username
-    }
+    };
     API.destroyFavourite(deleteBody).then(json => {
       this.setState({
         favourites: favouriteList
-      })
-    })
+      });
+    });
   };
+
+  handleChange = (event, data) => {
+    this.setState({ value: data.value });
+  };
+
+  handleSubmit = () => {
+    console.log(this.state);
+  };
+
+  // handleChange = event => {
+  //   const searchValue = event.target;
+  //   console.log(event.target);
+  //   // this.setState({ searchValue: event.target });
+  // };
+
+  // handleSubmit = event => {
+  //   console.log(event);
+  //   event.preventDefault();
+  //   // navigator.geolocation
+  //   //   .getCurrentPosition(position =>
+  //   //     API.restaurantSearch(position.coords, event.target.value)
+  //   //   )
+  //   //   .then(data => {
+  //   //     this.setState({
+  //   //       allRestaurants: data.restaurants
+  //   //     });
+  //   //   });
+  // };
 
   render() {
     return (
@@ -96,6 +133,9 @@ class App extends Component {
               addFav={this.addFav}
               loggedIn={this.state.username}
               favRestaurants={this.state.favourites}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              cuisines={this.state.cuisines}
             />
           )}
         />

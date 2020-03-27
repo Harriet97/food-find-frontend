@@ -1,14 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
+import { Button, Form, Dropdown, Icon } from "semantic-ui-react";
 
-const Search = props => {
-  return (
-    <div className="ui search">
-      <div className="ui icon input">
-        <input className="prompt" onChange={props.onChange} />
-        <i className="search icon" />
-      </div>
-    </div>
-  );
-};
+class Search extends Component {
+  generateCuisines() {
+    const cuisines = this.props.cuisines;
+
+    return cuisines.map(cuisine => ({
+      key: cuisine.cuisine.cuisine_name,
+      text: cuisine.cuisine.cuisine_name,
+      value: cuisine.cuisine.cuisine_id
+    }));
+  }
+  render() {
+    return (
+      <Form onSubmit={this.props.handleSubmit}>
+        <Form.Group>
+          <Dropdown
+            placeholder="Search by cuisine..."
+            fluid
+            search
+            selection
+            options={this.generateCuisines()}
+            onChange={this.handleChange}
+          />
+
+          <Button color="teal" fluid size="medium" type="submit">
+            <Icon name="search" />
+          </Button>
+        </Form.Group>
+      </Form>
+    );
+  }
+}
 
 export default Search;

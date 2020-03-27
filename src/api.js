@@ -6,19 +6,34 @@ const validateURL = `${baseURL}/validate`;
 const addFavURL = `${baseURL}/restaurants`;
 const searchURL = "https://developers.zomato.com/api/v2.1/search?q=";
 const locationUrl = "https://developers.zomato.com/api/v2.1/search?";
+const cuisineURL = "https://developers.zomato.com/api/v2.1/cuisines?";
 
 const restaurantShowURL =
   "https://developers.zomato.com/api/v2.1/restaurant?res_id=";
 
 const removeFavURL = `${baseURL}/unfavourite`;
 
-const searchRestaurants = () => {
-  return fetch(searchURL, {
-    method: "GET",
-    headers: {
-      "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+const searchRestaurants = (location, search) => {
+  return fetch(
+    `${locationUrl}lat=${location.latitude}&lon=${location.longitude}&cuisine=${search}`,
+    {
+      method: "GET",
+      headers: {
+        "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+      }
     }
-  }).then(jsonify);
+  ).then(jsonify);
+};
+const getCuisines = location => {
+  return fetch(
+    `${cuisineURL}lat=${location.latitude}&lon=${location.longitude}`,
+    {
+      method: "GET",
+      headers: {
+        "user-key": "ab7bd7822dfc651cfa6f0b4f23152241"
+      }
+    }
+  ).then(jsonify);
 };
 
 const localRestaurants = location => {
@@ -84,6 +99,7 @@ const destroyFavourite = data => {
 };
 
 export default {
+  getCuisines,
   signUp,
   signIn,
   validate,
