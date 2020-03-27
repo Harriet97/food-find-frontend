@@ -21,7 +21,9 @@ class FavouriteCard extends React.Component {
             {restaurant.name}
           </Card.Title>
           <Button.Group attached="bottom">
-            <Button as={Link} to={`/restaurants/${restaurant.id}`}>
+
+          <Button as={Link} to={`/restaurants/${restaurant.zomato_id}`}>
+
               <Icon name="plus circle" />
               More Info
             </Button>
