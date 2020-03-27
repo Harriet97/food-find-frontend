@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import RestaurantList from "./RestaurantList";
 // import SortAndFilterOptions from "./SortAndFilterOptions";
 import Search from "./Search";
+import API from "../api";
 
 class Home extends Component {
-  state = {
-    searchValue: ""
-  };
-  onChange = event => {
-    const searchValue = event.target.value;
-    this.setState({ searchValue });
-  };
   render() {
     return (
       <div style={{ padding: "70px" }}>
-        <Search onChange={this.onChange} />
+        <Search
+          handleChange={this.props.handleChange}
+          handleSubmit={this.props.handleSubmit}
+          cuisines={this.props.cuisines}
+        />
 
         <RestaurantList
           restaurants={this.props.restaurants}
