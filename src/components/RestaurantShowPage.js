@@ -8,9 +8,11 @@ import {
   Segment,
   Divider,
   Button,
-  Search
+  Search,
+  Embed
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import GoogleMap from "./GoogleMap";
 
 class RestaurantShowPage extends React.Component {
   render() {
@@ -19,7 +21,7 @@ class RestaurantShowPage extends React.Component {
       <div style={{ padding: "70px" }}>
         <Segment placeholder>
           <Grid columns={2} stackable>
-            <Grid.Row verticalAlign="middle">
+            <Grid.Row verticalAlign="top">
               <Grid.Column textAlign="center">
                 <Statistic>
                   <Statistic horizontal>
@@ -27,7 +29,7 @@ class RestaurantShowPage extends React.Component {
                   </Statistic>
                 </Statistic>
                 <Image src={restaurant.featured_image} size="large" centered />
-                <h3 centered>
+                <h3 >
                   <Icon name="food" />
                   {restaurant.establishment} - {restaurant.cuisines}
                 </h3>
@@ -47,7 +49,10 @@ class RestaurantShowPage extends React.Component {
 
               <Grid.Column>
                 <h2>Find us:</h2>
-                <Image bordered size="big" alt="google maps image here" />
+                <div className="ui embed">
+                {/* // <Image bordered size="big" alt="google maps image here" /> */}
+                <GoogleMap restaurant={restaurant}/>
+                </div>
                 <h3>
                   <Icon name="location arrow" />
                   {restaurant.location.address}
