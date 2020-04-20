@@ -1,4 +1,4 @@
-## Food-Find - netlify link goes here
+## Food-Find - link
 Backend repository - https://github.com/samuelkyprianou/foodfind-backend
 
 Food-Find is a web app that lets you find a restaurant near you and find out which streaming services it is currently available on. Users are able to create an account and log in. User details are saved in brower session. Logged in users can save restaurants to their favourites list. If a user is not logged in and tries to save a show they will be prompted to log in or continue without saving. 
@@ -13,13 +13,12 @@ Food-Find is a web app that lets you find a restaurant near you and find out whi
 Add steps for how to use the project once the user has installed it. Make sure to include usage examples
 
 ## Languages, Frameworks and APIs
-
-Backend: Ruby, Ruby on Rails, PostgreSQL, BCrypt
-Frontend: JavaScript, React.js, React-router, Semantic UI, CSS, Bootstrap
-APIs: Restaurant Database - https://developers.zomato.com/ 
-      Google Maps - https://developers.google.com/maps/documentation
+  Backend: Ruby, Ruby on Rails, PostgreSQL, BCrypt <br />
+  Frontend: JavaScript, React.js, React-router, Semantic UI, CSS, Bootstrap <br />
+  APIs: <br />Restaurant Database - https://developers.zomato.com/ 
+         <br />Google Maps - https://developers.google.com/maps/documentation
 
 ## Contributors:
 
-Sam Kyprianou - https://github.com/samuelkyprianou
+Sam Kyprianou - https://github.com/samuelkyprianou <br />
 Harriet Bicknell - https://github.com/Harriet97
