@@ -7,7 +7,7 @@ Food-Find is a web app that lets you find a restaurant near you and find out whi
   1. Clone this repository and the backend repository linked above.
   2. In the backend repo, run `bundle install` in the terminal. Then run `rails s`
   3. In the frontend repo (this repo), run `npm install` in the terminal. Then run `npm start` to start up the app.
-     N.B. Your backend should be running on localhost:3000
+     N.B. Your backend should be running on `localhost:3000` .
 
 ## Usage:
 Add steps for how to use the project once the user has installed it. Make sure to include usage examples
