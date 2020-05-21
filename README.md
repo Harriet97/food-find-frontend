@@ -1,7 +1,7 @@
 ## Food-Find - link
 Backend repository - https://github.com/samuelkyprianou/foodfind-backend
 
-Food-Find is a web app that lets you find a restaurant near you and find out which streaming services it is currently available on. Users are able to create an account and log in. User details are saved in brower session. Logged in users can save restaurants to their favourites list. If a user is not logged in and tries to save a show they will be prompted to log in or continue without saving. 
+Food-Find is a web app that lets you find a restaurant near you and find out which streaming services it is currently available on. Users are able to create an account and log in. User details are saved in brower session. Logged in users can save restaurants to their favourites list. If a user is not logged in and tries to save a show they will be prompted to log in. 
 
 ## Installation:
   1. Clone this repository and the backend repository linked above.
@@ -10,7 +10,6 @@ Food-Find is a web app that lets you find a restaurant near you and find out whi
      N.B. Your backend should be running on `localhost:3000` .
 
 ## Usage:
-Add steps for how to use the project once the user has installed it. Make sure to include usage examples
 
 ## Languages, Frameworks and APIs
   Backend: Ruby, Ruby on Rails, PostgreSQL, BCrypt <br />
